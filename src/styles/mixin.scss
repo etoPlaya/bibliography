@@ -1,0 +1,32 @@
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin table {
+	@media (min-width: 768px) and (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin descrtop {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
