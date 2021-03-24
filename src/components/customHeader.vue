@@ -2,8 +2,8 @@
 	<header>
 		<div class="content">
 			<p>Библиография — это сервис составления библиографического описания различных источников информации.</p>
-			<img src="../assets/logo.svg" alt="">
-			<a href="https://goldcarrot.ru/" class="developer">
+			<img src="@/assets/logo.svg" alt="">
+			<a href="https://goldcarrot.ru/" class="developer" target="_blank">
 				<span>Сделано в </span>
 				<svg width="11" height="18" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
 					<path d="M6.2201 0.860994V5.81194C6.2201 6.17353 5.94548 6.4934 5.56969 6.53512C5.13608 6.57684 4.77474 6.25697 4.77474 5.83976L4.80364 4.32388C4.77474 3.69806 4.71692 1.95966 4.77474 1.08351V0.902716C4.77474 0.499408 5.13608 0.346429 5.55523 0.388151C5.94548 0.429872 6.2201 0.499408 6.2201 0.860994Z" fill=""/>

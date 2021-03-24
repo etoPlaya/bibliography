@@ -22,6 +22,14 @@ h6 {
 	text-decoration: none;
 }
 
+input,
+button,
+textarea {
+	border: none;
+	box-shadow: none;
+	outline: none;
+}
+
 html,
 body {
 	cursor: default;
