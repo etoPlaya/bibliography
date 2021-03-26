@@ -57,6 +57,8 @@ section {
 	background: #FFFFFF;
 	box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.33);
 	border-radius: 0px 40px 0px 0px;
+
+  overflow: hidden;
 	@media screen and (max-width: 768px) {
 		height: auto;
 	}

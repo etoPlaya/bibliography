@@ -23,7 +23,22 @@ export default {
 				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
 				{title: 'Что такое библиография?', site: 'wikipedia.org'},
 				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
-				{title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+				{title: 'Как составлять библиографи-ческое описание, чтобы не об...', site: 'rsl.ru'},
 			]
 		}
 	}
@@ -31,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/mixin.scss';
+@import '@/styles/variable.scss';
 .links-container {
 	margin-top: 24px;
 	p {
@@ -42,12 +59,38 @@ export default {
 	.blocks {
 		display: flex;
 		flex-wrap: wrap;
-		margin: 16px -30px -20px 0;
+		margin: 16px -25px -20px 0;
+    padding-top: 10px;
+
+    overflow-y: auto;
+
+    max-height: calc(100vh - 169px);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #F3F3F7;
+      border-radius: 2px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #C2C2D6;
+      border-radius: 2px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #AEAEC1;
+    }
 		.block {
 			display: flex;
 			flex-direction: column;
 
-			max-width: 270px;
+			max-width: 265px;
 			width: 100%;
 			min-height: 100px;
 			background: linear-gradient(73.28deg, #595D7E 0%, #595D7E 0.01%, #7B80A2 100%);
@@ -55,7 +98,7 @@ export default {
 			border-radius: 8px;
 
 			padding: 15px 12px 16px 16px;
-			margin: 0 30px 20px 0;
+			margin: 0 25px 20px 0;
 			cursor: pointer;
 
 			transition: 250ms ease all;

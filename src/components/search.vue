@@ -23,7 +23,7 @@
 		</div>
 		<div class="result" v-if="visibleResult">
 			<div class="result-head">
-				<div class="result-total"><span>200</span> результатов</div>
+				<div class="result-total"><span>{{ books.length }}</span> результатов</div>
 				<div class="result-clear" tabindex="1" @click="clearResult">
 					<span>очистить</span>
 					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,13 +32,17 @@
 				</div>
 			</div>
 			<div class="result-list">
-				<div class="result-item">
+				<div class="result-item" v-for="book of books">
 					<a href="" class="result-item-link">
 						<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 							<path d="M11.775 7.83586L13.2522 6.35868C14.2493 5.36157 14.2493 3.74493 13.2522 2.74782C12.2551 1.75071 10.6384 1.75071 9.6413 2.74782L7.74456 4.64458C5.218 7.18755 10.4802 9.14444 8.06799 11.5429L6.3587 13.2522C5.36159 14.2493 3.74495 14.2493 2.74784 13.2522C1.75072 12.255 1.75072 10.6384 2.74784 9.64129L3.89675 8.49238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 					</a>
-					<div class="result-item-title">Как обойти конкурентов : создаем сильный бренд [пер. с англ.]</div>
+					<div class="result-item-title">
+            {{ isString(book.title) }}
+            {{ isString(book.year) }}
+            {{ book.isbn != '' ? book.isbn : ''}}
+          </div>
 					<a href="" class="result-item-button">
 						<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2ZM0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7C14 10.866 10.866 14 7 14C3.13401 14 0 10.866 0 7ZM7 4C7.55228 4 8 4.44772 8 5V6H9C9.55228 6 10 6.44771 10 7C10 7.55228 9.55229 8 9 8H8V9C8 9.55229 7.55228 10 7 10C6.44772 10 6 9.55229 6 9V8H5C4.44772 8 4 7.55228 4 7C4 6.44772 4.44771 6 5 6H6V5C6 4.44772 6.44772 4 7 4Z"/>
@@ -63,7 +67,48 @@ export default {
 			bookYear: '',
 			bookDevelop: '',
 			bookCategory: '',
-			bookLanguage: ''
+			bookLanguage: '',
+      books: [
+        {
+          title: 'Богатый Папа, Бедный Папа',
+          publisher: 'Роберт Кийосаки',
+          year: '1994 г',
+          isbn: '978-985-15-3255-7',
+          type: 'Финансы домашнего хозяйства'
+        },
+        {
+          title: 'Самый богатый человек в Вавилоне',
+          publisher: 'Джордж Самюэль Клейсон',
+          year: '1926 г',
+          isbn: '978-985-15-4829-9',
+          type: 'Управление частным капиталом'
+        },
+        {
+          title: 'Alibaba. История мирового восхождения от первого лица',
+          publisher: 'Дункан Кларк',
+          year: '2019 г',
+          type: 'Биография'
+        },
+        {
+          title: 'Одна привычка в неделю: Измени себя за год',
+          publisher: 'Бретт Блюменталь',
+          year: '2015 г',
+          type: 'Литература по саморазвитию'
+        },
+        {
+          title: 'Почему вы глупы, больны и бедны... И как стать умным, здоровым и богатым!',
+          publisher: 'Рэнди Пол Гейдж',
+          year: '2006 г',
+          type: 'Литература по саморазвитию'
+        },
+        {
+          title: 'Как завоевывать друзей и оказывать влияние на людей',
+          publisher: 'Дейл Карнеги',
+          year: '1936 г',
+          isbn: '5-289-01225-7',
+          type: 'Литература по саморазвитию'
+        }
+      ]
 	 	}
 	},
 	methods: {
@@ -82,7 +127,14 @@ export default {
 			
 
 			this.visibleResult = false
-		}
+		},
+    isString(string) {
+      if(string != '' && string != undefined) {
+        return string + '.'
+      } else {
+        return '';
+      }
+    }
 	}
 }
 </script>
@@ -202,7 +254,33 @@ export default {
 			}
 		}
 		&-list {
-			margin-top: 12px;
+      margin: 12px -24px 0 0;
+      overflow-y: auto;
+
+      max-height: calc(100vh - 328px);
+
+      padding-right: 24px;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #F3F3F7;
+        border-radius: 2px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #C2C2D6;
+        border-radius: 2px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #AEAEC1;
+      }
 		}
 		&-item {
 			display: flex;
