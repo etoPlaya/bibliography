@@ -70,13 +70,19 @@ section {
 			align-items: center;
 
 			margin-right: 25px;
+      padding: 6px 5px;
 
 			cursor: pointer;
 			transition: 250ms ease all;
+      border-radius: 5px;
 			&:hover:not(.active) {
+        background-color: $background;
 				svg {
 					stroke: $brand;
 				}
+        span {
+          color: $brand;
+        }
 			}
 			&.active {
 				span, svg {
