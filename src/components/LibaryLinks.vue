@@ -1,6 +1,6 @@
 <template>
   <div class="links-container">
-  <p>Советуем ознакомиться с библиографией как с наукой и посмотреть, чему каждый может научиться</p>
+    <p>Советуем ознакомиться с библиографией как с наукой и посмотреть, чему каждый может научиться</p>
     <div class="blocks">
       <a :href="'https://' + link.site" class="block" v-for="link of links" target="_blank">
         <div class="title">{{link.title}}</div>
