@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-		<TheHeader/>
-		<main>
-			<div class="container">
-				<Libary/>
-				<Collection/>
-			</div>
-		</main>
+    <TheHeader/>
+    
+    <main>
+      <div class="container">
+        <Libary/>
+        <Collection/>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -18,9 +19,9 @@ import Collection from '@/components/Collection';
 export default {
   name: 'App',
   components: {
-		TheHeader,
-		Libary,
-		Collection,
+    TheHeader,
+    Libary,
+    Collection,
   }
 }
 </script>
@@ -33,23 +34,25 @@ export default {
 @import '@/styles/fonts.scss';
 
 #app {
-	font-family: "PT Root UI";
-	color: $default;
-	background-color: $brand;
-	.content {
-		position: relative;
-		padding: 12px 40px;
-	}
-	main {
-		.container {
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
-		}
-	}
+  font-family: "PT Root UI";
+  color: $default;
+  background-color: $brand;
+
+  .content {
+    position: relative;
+    padding: 12px 40px;
+  }
+
+  main {
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
 }
 
 body {
-	background-color: $brand;
+  background-color: $brand;
 }
 </style>

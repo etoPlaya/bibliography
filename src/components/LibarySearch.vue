@@ -109,6 +109,7 @@ export default {
 
 .search-container {
 	margin-top: 24px - 6px;
+
 	.search {
 		&-desc {
 			max-width: 340px;
@@ -117,6 +118,7 @@ export default {
 
 			color: $brand;
 		}
+
 		form {
 			display: flex;
 			flex-wrap: wrap;
@@ -181,9 +183,11 @@ export default {
 
 					cursor: pointer;
 					transition: 250ms ease all;
+
 					&:hover {
 						background: #464863;
 					}
+
           &:active, &.active {
             background: #2A2C3C;
           }
@@ -191,16 +195,19 @@ export default {
 			}
 		}
 	}
+
 	.no-books {
 		position: absolute;
 		top: calc(50% - 100px);
 		width: calc(100% - 80px);
+    
 		img {
 			display: block;
 			max-width: 100%;
 
 			margin: 0 auto;
 		}
+
 		p {
 			font-size: 18px;
 			line-height: 23px;

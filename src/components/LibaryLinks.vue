@@ -48,14 +48,17 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 @import '@/styles/variable.scss';
+
 .links-container {
 	margin-top: 24px;
+
 	p {
 		max-width: 390px;
 		font-size: 12px;
 		line-height: 15px;
 		color: #585C7D;
 	}
+
 	.blocks {
 		display: flex;
 		flex-wrap: wrap;
@@ -86,6 +89,7 @@ export default {
     &::-webkit-scrollbar-thumb:hover {
       background: #AEAEC1;
     }
+
 		.block {
 			display: flex;
 			flex-direction: column;
@@ -102,12 +106,15 @@ export default {
 			cursor: pointer;
 
 			transition: 250ms ease all;
+
 			&:hover {
 				box-shadow: 0px 12px 30px rgba(89, 93, 126, 0.6);
 				transform: translateY(-5px);
+        
 				.title {
 					color: #FFFFFF;
 				}
+
 				.wrapper {
 					.search {
 						color: #CFD1DD;
@@ -117,6 +124,7 @@ export default {
 					}
 				}
 			}
+
 			.title {
 				font-size: 16px;
 				line-height: 20px;
@@ -127,12 +135,14 @@ export default {
 				
 				transition: 250ms ease all;
 			}
+
 			.wrapper {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				
 				margin-top: auto;
+
 				.search {
 					font-size: 16px;
 					line-height: 20px;
@@ -151,6 +161,7 @@ export default {
 						transition: 250ms ease all;
 					}
 				}
+
 				.page {
 					font-size: 12px;
 					line-height: 15px;

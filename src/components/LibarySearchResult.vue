@@ -92,10 +92,12 @@ export default {
 
 .result {
   margin-top: 30px;
+
   &-head {
     display: flex;
     align-items: center;
   }
+
   &-total {
     font-size: 18px;
     line-height: 23px;
@@ -103,6 +105,7 @@ export default {
 
     margin-right: 10px;
   }
+
   &-clear {
     display: flex;
     align-items: center;
@@ -113,21 +116,26 @@ export default {
     padding: 4px 5px;
 
     transition: 250ms ease all;
+
     &:hover {
       background: #F3F3F7;
     }
+
     &:active, &.active {
       background: #D4D4E2;
     }
+
     span {
       font-size: 12px;
       color: #82859E;
     }
+
     svg {
       fill: #82859E;
       margin-left: 3.5px;
     }
   }
+
   &-list {
     margin: 12px -24px 0 0;
     overflow-y: auto;
@@ -157,6 +165,7 @@ export default {
       background: #AEAEC1;
     }
   }
+
   &-item {
     display: flex;
     align-items: center;
@@ -164,12 +173,15 @@ export default {
     border-bottom: 1px solid $background;
 
     transition: 250ms ease all;
+
     &:hover {
       background-color: #F9F9FB;
     }
+
     &:first-child {
       border-top: 1px solid $background;
     }
+
     &-link {
       display: block;
       margin-right: 9px;
@@ -177,34 +189,43 @@ export default {
       padding: 5px;
       border-radius: 4px;
       transition: 250ms ease all;
+
       &:hover {
         background: #F2F2F5;
+
         svg {
           stroke: #A9ABBC;
         }
       }
+
       &:active, &.active {
         background: #D7D7E0;
+
         svg {
           stroke: #70728F;
         }
       }
+
       svg {
         fill: transparent;
         stroke: #BEBFCC;
         transition: 250ms ease all;
       }
     }
+
     &-title {
       font-size: 15px;
       color: $brand;
     }
+
     &-button {
       display: block;
       margin-left: auto;
+
       &:hover svg {
         fill: $brand;
       }
+      
       svg {
         fill: #BEBFCC;
         transition: 250ms ease all;

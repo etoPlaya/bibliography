@@ -2,7 +2,9 @@
 	<header>
 		<div class="content">
 			<p>Библиография — это сервис составления библиографического описания различных источников информации.</p>
+
 			<img src="@/assets/logo.svg" alt="">
+
 			<a href="https://goldcarrot.ru/" class="developer" target="_blank">
 				<span>Сделано в </span>
 				<svg width="11" height="18" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
@@ -40,18 +42,19 @@
 
 		transition: 250ms ease all;
 
-		svg {
-			fill: white;
-			opacity: 0.3;
-
-			transition: 250ms ease all;
-		}
-		&:hover {
+    &:hover {
 			color: gold;
 			svg {
 				fill: gold;
 				opacity: 1;
 			}
+		}
+
+		svg {
+			fill: white;
+			opacity: 0.3;
+
+			transition: 250ms ease all;
 		}
 	}
 </style>
