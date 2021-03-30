@@ -40,7 +40,7 @@
 
 <script>
 export default {
- 	data: () => ({
+  data: () => ({
     books: [
       {
         title: 'Богатый Папа, Бедный Папа',
@@ -94,16 +94,16 @@ export default {
   margin-top: 30px;
 
   &-head {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   }
 
   &-total {
-    font-size: 18px;
-    line-height: 23px;
-    color: $brand;
+  font-size: 18px;
+  line-height: 23px;
+  color: $brand;
 
-    margin-right: 10px;
+  margin-right: 10px;
   }
 
   &-clear {
@@ -225,7 +225,7 @@ export default {
       &:hover svg {
         fill: $brand;
       }
-      
+
       svg {
         fill: #BEBFCC;
         transition: 250ms ease all;

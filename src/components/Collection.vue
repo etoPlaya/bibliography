@@ -1,7 +1,7 @@
 <template>
-	<section>
+  <section>
 
-	</section>
+  </section>
 </template>
 
 <script>
@@ -26,7 +26,7 @@ section {
   @media (min-width: 1200px) and (max-height: 768px) {
     height: auto;
   }
-  
+
   @media screen and (max-width: 768px) {
     height: auto;
   }
