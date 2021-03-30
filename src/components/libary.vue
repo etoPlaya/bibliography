@@ -8,35 +8,36 @@
 				</svg>
 				<span>Поиск</span>
 			</div>
+
 			<div class="tabs-tab" @click="visibleSearch = false" :class="{ active: !visibleSearch }">
 				<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 					<path d="M11.775 7.83586L13.2522 6.35868C14.2493 5.36157 14.2493 3.74493 13.2522 2.74782C12.2551 1.75071 10.6384 1.75071 9.6413 2.74782L7.74456 4.64458C5.218 7.18755 10.4802 9.14444 8.06799 11.5429L6.3587 13.2522C5.36159 14.2493 3.74495 14.2493 2.74784 13.2522C1.75072 12.255 1.75072 10.6384 2.74784 9.64129L3.89675 8.49238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 				<span>Полезные ссылки</span>
 			</div>
+
 		</div>
+
 		<div class="tab-item">
-			<search v-if="visibleSearch"></search>
-			<links v-if="!visibleSearch"></links>
+			<LibarySearch v-if="visibleSearch"/>
+			<LibaryLinks v-if="!visibleSearch"/>
 		</div>
 	</section>
 </template>
 
 <script>
-import search from '@/components/search';
-import links from '@/components/links';
+import LibarySearch from '@/components/LibarySearch';
+import LibaryLinks from '@/components/LibaryLinks';
 
 export default {
 	components: {
-		search,
-		links
+		LibarySearch,
+		LibaryLinks,
 	},
  	data() {
 		return {
 			visibleSearch: true
 		}
-	},
-	methods: {
 	}
 }
 </script>
@@ -44,6 +45,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 @import '@/styles/variable.scss';
+
 section {
 	position: relative;
 
@@ -75,6 +77,7 @@ section {
 			cursor: pointer;
 			transition: 250ms ease all;
       border-radius: 5px;
+
 			&:hover:not(.active) {
         background-color: $background;
 				svg {
@@ -84,12 +87,14 @@ section {
           color: $brand;
         }
 			}
+
 			&.active {
 				span, svg {
 					color: $brand;
 					stroke: $brand;
 				}
 			}
+
 			svg {
 				display: block;
 
@@ -100,6 +105,7 @@ section {
 
 				transition: 250ms ease all;
 			}
+
 			span {
 				font-size: 16px;
 				line-height: 20px;

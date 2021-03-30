@@ -11,6 +11,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/mixin.scss';
+@import '@/styles/variable.scss';
+
 	section {
 		max-width: 950px;
 		width: 100%;

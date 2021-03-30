@@ -2,38 +2,74 @@
 	<div class="search-container">
 		<div class="search">
 			<p class="search-desc">Чтобы найти получить библиографическое описание, найдите источник литературы по названию, автору или ISBN</p>
+
 			<form @submit.prevent="onSubmit">
 				<div class="wrapper">
-					<input type="text" placeholder="Прозведение, автор, название, ISBN" v-model="bookTitle">
+
+					<input 
+            type="text" 
+            placeholder="Прозведение, автор, название, ISBN" 
+            v-model="bookTitle"
+          >
+
 					<button class="button">Найти</button>
 				</div>
+
 				<div class="wrapper">
-					<input type="text" placeholder="Год издания" v-model="bookYear">
+					<input 
+            type="text" 
+            placeholder="Год издания" 
+            v-model="bookYear"
+          >
 				</div>
+
 				<div class="wrapper">
-					<input type="text" placeholder="Издательство" v-model="bookDevelop">
+					<input 
+            type="text" 
+            placeholder="Издательство" 
+            v-model="bookDevelop"
+          >
 				</div>
+
 				<div class="wrapper">
-					<input type="text" placeholder="Категория" v-model="bookCategory">
+					<input 
+            type="text" 
+            placeholder="Категория" 
+            v-model="bookCategory"
+          >
 				</div>
+
 				<div class="wrapper">
-					<input type="text" placeholder="Язык" v-model="bookLanguage">
+					<input 
+            type="text" 
+            placeholder="Язык" 
+            v-model="bookLanguage"
+          >
 				</div>
-			</form>
+      </form>
 		</div>
-    <resultSeacrh v-if="visibleResult" @clearResult="clearResult"></resultSeacrh>
+
+    <LibarySearchResult 
+      v-if="visibleResult" 
+      @clearResult="clearResult"
+    />
+
 		<div class="no-books" v-if="!visibleResult">
-			<img src="@/assets/books.png" alt="">
+			<img 
+        src="@/assets/books.png" 
+        alt=""
+      >
 			<p>В нашей базе содержится <br> более 2 000 000 источников информации</p>
 		</div>
 	</div>
 </template>
 
 <script>
-import resultSeacrh from '@/components/resultSearch';
+import LibarySearchResult from '@/components/LibarySearchResult';
+
 export default {
   components: {
-    resultSeacrh
+    LibarySearchResult
   },
  	data() {
 	 	return {
@@ -42,7 +78,7 @@ export default {
 			bookYear: '',
 			bookDevelop: '',
 			bookCategory: '',
-			bookLanguage: ''
+			bookLanguage: '',
 	 	}
 	},
 	methods: {
@@ -52,8 +88,8 @@ export default {
 				element != '' ? this.visibleResult = true : false;
 			});
 		},
+
     clearResult(evt) {
-      console.log('test')
 			this.bookTitle = '';
 			this.bookYear = '';
 			this.bookDevelop = '';
@@ -61,7 +97,7 @@ export default {
 			this.bookLanguage = '';
 			
 
-			this.visibleResult = false
+			this.visibleResult = false;
 		}
 	}
 }
@@ -70,6 +106,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 @import '@/styles/variable.scss';
+
 .search-container {
 	margin-top: 24px - 6px;
 	.search {
@@ -89,6 +126,7 @@ export default {
 			.wrapper {
 				position: relative;
 				margin: 0 16px 0 0;
+
 				&:first-child {
 					max-width: 870px;
 					width: 100%;
@@ -102,6 +140,7 @@ export default {
 						padding-left: 16px;
 					}
 				}
+
 				input {
 					max-width: 120px;
 					width: 100%;
@@ -124,6 +163,7 @@ export default {
 						background: #E7E8EE;
 					}
 				}
+
 				.button {
 					position: absolute;
 					top: 4px;

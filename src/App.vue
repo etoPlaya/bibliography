@@ -1,34 +1,31 @@
 <template>
   <div id="app">
-		<customHeader/>
+		<TheHeader/>
 		<main>
 			<div class="container">
-				<libary/>
-				<selectLibary/>
+				<Libary/>
+				<Collection/>
 			</div>
 		</main>
   </div>
 </template>
 
 <script>
-
-import customHeader from '@/components/customHeader';
-import libary from '@/components/libary';
-import selectLibary from '@/components/selectLibary';
+import TheHeader from '@/components/TheHeader';
+import Libary from '@/components/Libary';
+import Collection from '@/components/Collection';
 
 export default {
   name: 'App',
   components: {
-		customHeader,
-		libary,
-		selectLibary,
+		TheHeader,
+		Libary,
+		Collection,
   }
 }
-
 </script>
 
 <style lang="scss">
-
 @import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
 @import '@/styles/mixin.scss';
 @import '@/styles/variable.scss';
@@ -55,5 +52,4 @@ export default {
 body {
 	background-color: $brand;
 }
-
 </style>
