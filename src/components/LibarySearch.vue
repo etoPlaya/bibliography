@@ -2,7 +2,6 @@
   <div class="search-container">
   <div class="search">
     <p class="search-desc">Чтобы найти получить библиографическое описание, найдите источник литературы по названию, автору или ISBN</p>
-
     <form @submit.prevent="onSubmit">
       <div class="wrapper">
         <input 

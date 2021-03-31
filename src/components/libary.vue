@@ -2,17 +2,12 @@
   <section>
   <div class="tabs">
     <div class="tabs-tab" @click="visibleSearch = true" :class="{ active: visibleSearch }">
-      <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="7.5" cy="7.5" r="5.5" stroke-width="2"/>
-        <path d="M12 12L14 14"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <LoopIcon/>
       <span>Поиск</span>
     </div>
 
     <div class="tabs-tab" @click="visibleSearch = false" :class="{ active: !visibleSearch }">
-      <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.775 7.83586L13.2522 6.35868C14.2493 5.36157 14.2493 3.74493 13.2522 2.74782C12.2551 1.75071 10.6384 1.75071 9.6413 2.74782L7.74456 4.64458C5.218 7.18755 10.4802 9.14444 8.06799 11.5429L6.3587 13.2522C5.36159 14.2493 3.74495 14.2493 2.74784 13.2522C1.75072 12.255 1.75072 10.6384 2.74784 9.64129L3.89675 8.49238" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <LinkIcon/>
       <span>Полезные ссылки</span>
     </div>
 
@@ -26,6 +21,9 @@
 </template>
 
 <script>
+import LoopIcon from '@/assets/ui/loop.svg';
+import LinkIcon from '@/assets/ui/link.svg';
+
 import LibarySearch from '@/components/LibarySearch';
 import LibaryLinks from '@/components/LibaryLinks';
 
@@ -33,9 +31,11 @@ export default {
   components: {
     LibarySearch,
     LibaryLinks,
+    LoopIcon,
+    LinkIcon,
   },
   data: () => ({
-    visibleSearch: true
+    visibleSearch: true,
   })
 }
 </script>
@@ -61,7 +61,7 @@ section {
   overflow: hidden;
 
   @media screen and (max-width: 768px) {
-  height: auto;
+    height: auto;
   }
 
   .tabs {
@@ -103,6 +103,7 @@ section {
 
         fill: transparent;
         stroke: #A5A8C0;
+        stroke-width: 2px;
 
         margin-right: 4px;
 

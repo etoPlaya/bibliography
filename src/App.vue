@@ -34,7 +34,7 @@ export default {
 @import '@/styles/fonts.scss';
 
 #app {
-  font-family: "PT Root UI";
+  font-family: "PT Root UI", sans-serif;
   color: $default;
   background-color: $brand;
 
