@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="collection">
+    <div class="collection" v-if="visibleCollection">
       <div class="collection-head">
         <div class="title">Моя литература</div>
 
@@ -14,13 +14,20 @@
           <AddIcon/>
         </a>
       </div>
+
+      <CollectionDist/>
+
+      <CollectionList/>
     </div>
 
-    <div class="no-collection">
+    <div class="no-collection" v-if="!visibleCollection">
       <div class="title">Моя литература</div>
+
       <div class="placeholder">
-        Выбери книги из поиска слева, чтобы скачать их описание списком или <a href="">добавь свою книгу</a>
+        Выбери книги из поиска слева, чтобы скачать их описание списком или 
+        <a href="" @click.prevent="visibleCollection = !visibleCollection">добавь свою книгу</a>
       </div>
+
       <img src="@/assets/collection.png" alt="">
     </div>
   </section>
@@ -30,10 +37,20 @@
 import CloseIcon from '@/assets/ui/close.svg';
 import AddIcon from '@/assets/ui/add.svg';
 
+import CollectionDist from '@/components/CollectionDist';
+import CollectionList from '@/components/CollectionList';
+
 export default {
   components: {
     CloseIcon,
     AddIcon,
+    CollectionDist,
+    CollectionList,
+  },
+  data() {
+    return {
+      visibleCollection: false,
+    }
   }
 }
 </script>

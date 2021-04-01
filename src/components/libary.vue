@@ -1,15 +1,15 @@
 <template>
   <section>
   <div class="tabs">
-    <div class="tabs-tab" @click="visibleSearch = true" :class="{ active: visibleSearch }">
+    <a href="" class="tabs-tab" @click.prevent="visibleSearch = true" :class="{ active: visibleSearch }">
       <LoopIcon/>
       <span>Поиск</span>
-    </div>
+    </a>
 
-    <div class="tabs-tab" @click="visibleSearch = false" :class="{ active: !visibleSearch }">
+    <a href="" class="tabs-tab" @click.prevent="visibleSearch = false" :class="{ active: !visibleSearch }">
       <LinkIcon/>
       <span>Полезные ссылки</span>
-    </div>
+    </a>
 
   </div>
 
