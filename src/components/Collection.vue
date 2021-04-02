@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="collection" v-if="visibleCollection">
-      <div class="collection-head">
+    <div class="collection">
+      <div class="collection-head" v-if="visibleCollection">
         <div class="title">Моя литература</div>
 
-        <a href="" class="clear">
+        <a href="" class="clear" @click.prevent="clearCollection">
           <span>очистить</span>
           <CloseIcon/>
         </a>
@@ -15,7 +15,9 @@
         </a>
       </div>
 
-      <CollectionDist/>
+      <CollectionDist
+        v-if="visibleCollection"
+      />
 
       <CollectionList/>
     </div>
@@ -34,6 +36,8 @@
 </template>
 
 <script>
+import { taxi } from "../main";
+
 import CloseIcon from '@/assets/ui/close.svg';
 import AddIcon from '@/assets/ui/add.svg';
 
@@ -47,11 +51,29 @@ export default {
     CollectionDist,
     CollectionList,
   },
+
   data() {
     return {
       visibleCollection: false,
     }
-  }
+  },
+
+  methods: {
+    clearCollection() {
+      this.visibleCollection = false;
+      taxi.$emit('clearCollection');
+    },
+  },
+
+  created() {
+    taxi.$on('visibleCollection', () => {
+      this.visibleCollection = true;
+    });
+    
+    taxi.$on('hiddenCollection', () => {
+      this.visibleCollection = false;
+    });
+  },
 }
 </script>
 

@@ -20,11 +20,11 @@
 
         <div class="result-item-title">
           {{ book.title + ',' }}
-          {{ book.number + 'г.'}}
+          {{ book.year + 'г.'}}
           {{ book.isbn }}
         </div>
 
-        <a href="" class="result-item-button">
+        <a href="" class="result-item-button" @click.prevent="addBookInCollection(book)">
           <AddIcon/>
         </a>
       </div>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { taxi } from "../main";
+
 import LinkIcon from '@/assets/ui/link.svg';
 import AddIcon from '@/assets/ui/add.svg';
 import CloseIcon from '@/assets/ui/close.svg';
@@ -43,49 +45,59 @@ export default {
     AddIcon,
     CloseIcon,
   },
-  data: () => ({
-    books: [
-      {
-        title: 'Богатый Папа, Бедный Папа',
-        publisher: 'Роберт Кийосаки',
-        number: 1994,
-        isbn: '978-985-15-3255-7',
-        type: 'Финансы домашнего хозяйства'
-      },
-      {
-        title: 'Самый богатый человек в Вавилоне',
-        publisher: 'Джордж Самюэль Клейсон',
-        number: 1926,
-        isbn: '978-985-15-4829-9',
-        type: 'Управление частным капиталом'
-      },
-      {
-        title: 'Alibaba. История мирового восхождения от первого лица',
-        publisher: 'Дункан Кларк',
-        number: 2019,
-        type: 'Биография'
-      },
-      {
-        title: 'Одна привычка в неделю: Измени себя за год',
-        publisher: 'Бретт Блюменталь',
-        number: 2015,
-        type: 'Литература по саморазвитию'
-      },
-      {
-        title: 'Почему вы глупы, больны и бедны... И как стать умным, здоровым и богатым!',
-        publisher: 'Рэнди Пол Гейдж',
-        number: 2006,
-        type: 'Литература по саморазвитию'
-      },
-      {
-        title: 'Как завоевывать друзей и оказывать влияние на людей',
-        publisher: 'Дейл Карнеги',
-        number: 1936,
-        isbn: '5-289-01225-7',
-        type: 'Литература по саморазвитию'
-      },
-    ]
-  }),
+  
+  data() {
+    return {
+      books: [
+        {
+          title: 'Богатый Папа, Бедный Папа',
+          publisher: 'Роберт Кийосаки',
+          year: 1994,
+          isbn: '978-985-15-3255-7',
+          type: 'Финансы домашнего хозяйства'
+        },
+        {
+          title: 'Самый богатый человек в Вавилоне',
+          publisher: 'Джордж Самюэль Клейсон',
+          year: 1926,
+          isbn: '978-985-15-4829-9',
+          type: 'Управление частным капиталом'
+        },
+        {
+          title: 'Alibaba. История мирового восхождения от первого лица',
+          publisher: 'Дункан Кларк',
+          year: 2019,
+          type: 'Биография'
+        },
+        {
+          title: 'Одна привычка в неделю: Измени себя за год',
+          publisher: 'Бретт Блюменталь',
+          year: 2015,
+          type: 'Литература по саморазвитию'
+        },
+        {
+          title: 'Почему вы глупы, больны и бедны... И как стать умным, здоровым и богатым!',
+          publisher: 'Рэнди Пол Гейдж',
+          year: 2006,
+          type: 'Литература по саморазвитию'
+        },
+        {
+          title: 'Как завоевывать друзей и оказывать влияние на людей',
+          publisher: 'Дейл Карнеги',
+          year: 1936,
+          isbn: '5-289-01225-7',
+          type: 'Литература по саморазвитию'
+        },
+      ]
+    }
+  },
+
+  methods: {
+    addBookInCollection(book) {
+      taxi.$emit('visibleCollection');
+      taxi.$emit('addBookInCollection', book);
+    }
+  }
 }
 </script>
 

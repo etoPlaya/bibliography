@@ -1,13 +1,13 @@
 <template>
   <div class="collection-list">
-    <div class="collection-item" v-for="book of collectionBooks">
+    <div class="collection-item" v-for="(book, index) of collectionBooks">
       <a href="" class="collection-item-link">
         <LinkIcon/>
       </a>
 
       <div class="collection-item-title">
         {{ book.title + ',' }}
-        {{ book.number + 'г.'}}
+        {{ book.year + 'г.'}}
         {{ book.isbn }}
       </div>
 
@@ -19,7 +19,7 @@
         <CopyIcon/>
       </a>
 
-      <a href="" class="collection-item-button collection-item-button__close">
+      <a href="" class="collection-item-button collection-item-button__close" @click.prevent="removeBook(index)">
         <CloseIcon/>
       </a>
     </div>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { taxi } from "../main";
+
 import LinkIcon from '@/assets/ui/link.svg';
 import EditIcon from '@/assets/ui/edit.svg';
 import CopyIcon from '@/assets/ui/copy.svg';
@@ -39,49 +41,30 @@ export default {
     CopyIcon,
     CloseIcon,
   },
-  data: () => ({
-    collectionBooks: [
-      {
-        title: 'Богатый Папа, Бедный Папа',
-        publisher: 'Роберт Кийосаки',
-        number: 1994,
-        isbn: '978-985-15-3255-7',
-        type: 'Финансы домашнего хозяйства'
-      },
-      {
-        title: 'Самый богатый человек в Вавилоне',
-        publisher: 'Джордж Самюэль Клейсон',
-        number: 1926,
-        isbn: '978-985-15-4829-9',
-        type: 'Управление частным капиталом'
-      },
-      {
-        title: 'Alibaba. История мирового восхождения от первого лица',
-        publisher: 'Дункан Кларк',
-        number: 2019,
-        type: 'Биография'
-      },
-      {
-        title: 'Одна привычка в неделю: Измени себя за год',
-        publisher: 'Бретт Блюменталь',
-        number: 2015,
-        type: 'Литература по саморазвитию'
-      },
-      {
-        title: 'Почему вы глупы, больны и бедны... И как стать умным, здоровым и богатым!',
-        publisher: 'Рэнди Пол Гейдж',
-        number: 2006,
-        type: 'Литература по саморазвитию'
-      },
-      {
-        title: 'Как завоевывать друзей и оказывать влияние на людей',
-        publisher: 'Дейл Карнеги',
-        number: 1936,
-        isbn: '5-289-01225-7',
-        type: 'Литература по саморазвитию'
-      },
-    ]
-  }),
+
+  data() {
+    return {
+      collectionBooks: [],
+    }
+  },
+
+  methods: {
+    removeBook(index) {
+      this.collectionBooks.splice(index, 1);
+
+      this.collectionBooks.length <= 0 ? taxi.$emit('hiddenCollection') : false; 
+    }
+  },
+
+  created() {
+    taxi.$on('addBookInCollection', data => {
+      this.collectionBooks.push({title: data.title, year: data.year, isbn: data.isbn});
+    });
+    
+    taxi.$on('clearCollection', () => {
+      this.collectionBooks = [];
+    });
+  },
 }
 </script>
 

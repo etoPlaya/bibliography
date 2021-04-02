@@ -34,6 +34,7 @@ export default {
     LoopIcon,
     LinkIcon,
   },
+  
   data: () => ({
     visibleSearch: true,
   })

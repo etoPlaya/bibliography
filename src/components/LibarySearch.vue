@@ -69,6 +69,7 @@ export default {
   components: {
     LibarySearchResult
   },
+
   data() {
     return {
       visibleResult: false,
@@ -79,6 +80,7 @@ export default {
       bookLanguage: '',
     }
   },
+  
   methods: {
     onSubmit(evt) {
       let inputsValue = [this.bookTitle, this.bookYear, this.bookDevelop, this.bookCategory, this.bookLanguage];
