@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: "/bibliography/dist/",
+	publicPath: "bibliography",
 };
 
 module.exports = {
