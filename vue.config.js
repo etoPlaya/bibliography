@@ -1,8 +1,6 @@
 module.exports = {
-	publicPath: "/bibliography/",
-};
-
-module.exports = {
+	// publicPath: "/bibliography/dist",
+  
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');
  
