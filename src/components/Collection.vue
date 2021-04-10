@@ -9,7 +9,7 @@
           <CloseIcon/>
         </a>
 
-        <a href="" class="added">
+        <a href="" class="added" @click.prevent="visibleModal = true">
           <span>добавить свой источник</span>
           <AddIcon/>
         </a>
@@ -27,11 +27,15 @@
 
       <div class="placeholder">
         Выбери книги из поиска слева, чтобы скачать их описание списком или 
-        <a href="" @click.prevent="visibleCollection = !visibleCollection">добавь свою книгу</a>
+        <a href="" @click.prevent="visibleModal = true">добавь свою книгу</a>
       </div>
 
       <img src="@/assets/collection.png" alt="">
     </div>
+
+    <CollectionModal
+      v-if="visibleModal"
+    />
   </section>
 </template>
 
@@ -43,6 +47,7 @@ import AddIcon from '@/assets/ui/add.svg';
 
 import CollectionDist from '@/components/CollectionDist';
 import CollectionList from '@/components/CollectionList';
+import CollectionModal from '@/components/CollectionModal';
 
 export default {
   components: {
@@ -50,11 +55,13 @@ export default {
     AddIcon,
     CollectionDist,
     CollectionList,
+    CollectionModal,
   },
 
   data() {
     return {
       visibleCollection: false,
+      visibleModal: false,
     }
   },
 
@@ -72,6 +79,10 @@ export default {
     
     taxi.$on('hiddenCollection', () => {
       this.visibleCollection = false;
+    });
+
+    taxi.$on('hiddenModal', () => {
+      this.visibleModal = false;
     });
   },
 }

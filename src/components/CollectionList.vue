@@ -7,8 +7,9 @@
 
       <div class="collection-item-title">
         {{ book.title + ',' }}
-        {{ book.year + 'г.'}}
+        {{ book.year != undefined ? `${book.year} г.` : ''}}
         {{ book.isbn }}
+        {{ book.publisher }}
       </div>
 
       <a href="" class="collection-item-button collection-item-button__edit">

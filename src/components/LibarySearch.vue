@@ -10,7 +10,7 @@
           v-model="bookTitle"
         >
 
-        <button class="button">Найти</button>
+        <button class="button dark-btn">Найти</button>
       </div>
 
       <div class="wrapper">
@@ -107,6 +107,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixin.scss';
 @import '@/styles/variable.scss';
+@import '@/styles/button.scss';
 
 .search-container {
   margin-top: 24px - 6px;
@@ -181,21 +182,8 @@ export default {
 
           font-size: 14px;
           line-height: 18px;
-          color: #FFFFFF;
-
-          border-radius: 4px;
-          background-color: $brand;
 
           cursor: pointer;
-          transition: 250ms ease all;
-
-          &:hover {
-            background: #464863;
-          }
-
-          &:active, &.active {
-            background: #2A2C3C;
-          }
         }
       }
     }

@@ -95,7 +95,7 @@ export default {
       display: flex;
       flex-direction: column;
 
-      max-width: 265px;
+      max-width: calc(33% - 25px);
       width: 100%;
       min-height: 100px;
       background: linear-gradient(73.28deg, #595D7E 0%, #595D7E 0.01%, #7B80A2 100%);

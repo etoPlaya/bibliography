@@ -6,10 +6,10 @@
         результатов
       </div>
 
-      <div class="result-clear" tabindex="1" @click="$emit('clearResult')">
+      <a href="" class="result-clear" @click.prevent="$emit('clearResult')">
         <span>очистить</span>
         <CloseIcon/>
-      </div>
+      </a>
     </div>
 
     <div class="result-list">
@@ -126,7 +126,6 @@ export default {
     align-items: center;
     border-radius: 4px;
     cursor: pointer;
-    outline: none;
 
     padding: 4px 5px;
 

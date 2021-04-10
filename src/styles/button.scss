@@ -1,0 +1,33 @@
+.dark-btn {
+  background: #575A7B;
+  color: #FFFFFF;
+  
+  border-radius: 4px;
+
+  transition: 250ms ease all;
+
+  &:hover {
+    background: #464863;
+  }
+
+  &:active, &.active {
+    background: #2A2C3C;
+  }
+}
+
+.light-btn {
+  background: #F3F3F7;
+  color: #595D7E;
+
+  border-radius: 8px;
+
+  transition: 250ms ease all;
+
+  &:hover {
+    background: #D7D7E0;
+  }
+
+  &:active, &.active {
+    background: #AEAEC1;
+  }
+}
