@@ -5,7 +5,7 @@
         <CloseIcon/>
       </a>
 
-      <div class="modal-title">Добавление своей книги</div>
+      <div class="modal-title">Редактирование существуеющей книги</div>
 
       <div class="modal-fields">
         <div class="modal-group">
@@ -144,17 +144,6 @@ export default {
 
   methods: {
     onSubmit() {
-      if(this.bookAuthors != '') {
-        taxi.$emit('hiddenModal');
-        taxi.$emit('visibleCollection');
-        taxi.$emit('addBookInCollection', {title: this.bookAuthors});
-      } else {
-        const inputs = document.querySelectorAll('.modal-group-inputs input');
-        
-        inputs.forEach(i => {
-          i.value == '' ? i.classList.add('has-error') : false 
-        });
-      }
     },
 
     closeModal() {

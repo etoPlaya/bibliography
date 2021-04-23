@@ -1,6 +1,6 @@
 <template>
   <div class="collection-list">
-    <div class="collection-item" v-for="(book, index) of collectionBooks">
+    <div class="collection-item" v-for="(book, index) of collectionBooks" v-bind:key="index">
       <a href="" class="collection-item-link">
         <LinkIcon/>
       </a>
@@ -12,7 +12,7 @@
         {{ book.publisher }}
       </div>
 
-      <a href="" class="collection-item-button collection-item-button__edit">
+      <a href="" class="collection-item-button collection-item-button__edit" @click.prevent="visibleModalEdit">
         <EditIcon/>
       </a>
 
@@ -54,6 +54,10 @@ export default {
       this.collectionBooks.splice(index, 1);
 
       this.collectionBooks.length <= 0 ? taxi.$emit('hiddenCollection') : false; 
+    },
+
+    visibleModalEdit() {
+      taxi.$emit('visibleModalEdit');
     }
   },
 

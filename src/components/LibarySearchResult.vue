@@ -13,7 +13,7 @@
     </div>
 
     <div class="result-list">
-      <div class="result-item" v-for="book of books">
+      <div class="result-item" v-for="(book, index) of books" v-bind:key="index">
         <a href="" class="result-item-link">
           <LinkIcon/>
         </a>

@@ -36,6 +36,10 @@
     <CollectionModal
       v-if="visibleModal"
     />
+
+    <CollectionModalEdit
+      v-if="visibleModalEdit"
+    />
   </section>
 </template>
 
@@ -48,6 +52,7 @@ import AddIcon from '@/assets/ui/add.svg';
 import CollectionDist from '@/components/CollectionDist';
 import CollectionList from '@/components/CollectionList';
 import CollectionModal from '@/components/CollectionModal';
+import CollectionModalEdit from '@/components/CollectionModalEdit';
 
 export default {
   components: {
@@ -56,12 +61,14 @@ export default {
     CollectionDist,
     CollectionList,
     CollectionModal,
+    CollectionModalEdit,
   },
 
   data() {
     return {
       visibleCollection: false,
       visibleModal: false,
+      visibleModalEdit: false
     }
   },
 
@@ -83,6 +90,11 @@ export default {
 
     taxi.$on('hiddenModal', () => {
       this.visibleModal = false;
+      this.visibleModalEdit = false;
+    });
+
+    taxi.$on('visibleModalEdit', () => {
+      this.visibleModalEdit = true;
     });
   },
 }
