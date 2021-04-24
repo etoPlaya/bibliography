@@ -139,11 +139,17 @@ export default {
       type: '',
       quantity: '',
       bookAuthors: '',
+      currentBook: {},
+      currentIndexBook: '',
     }
   },
 
   methods: {
     onSubmit() {
+      this.currentBook.title = this.bookAuthors;
+
+      taxi.$emit('hiddenModal');
+      taxi.$emit('replaceBook');
     },
 
     closeModal() {
@@ -153,10 +159,16 @@ export default {
 
   mounted() {
     window.onkeydown = function( event ) {
-    if ( event.keyCode == 27 ) {
-        taxi.$emit('hiddenModal');
-      }
+      event.keyCode == 27 ? taxi.$emit('hiddenModal') : false;
     };
+  },
+
+  created() {
+    taxi.$on('editBook', (book, index) => {
+      this.currentIndexBook = index;
+      this.currentBook = book;
+      this.bookAuthors = book.title;
+    });
   }
 }
 </script>

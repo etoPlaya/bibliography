@@ -12,7 +12,8 @@
         {{ book.publisher }}
       </div>
 
-      <a href="" class="collection-item-button collection-item-button__edit" @click.prevent="visibleModalEdit">
+      <a href="" class="collection-item-button collection-item-button__edit" 
+        @click.prevent="editCurrentBook(book, index)">
         <EditIcon/>
       </a>
 
@@ -56,9 +57,13 @@ export default {
       this.collectionBooks.length <= 0 ? taxi.$emit('hiddenCollection') : false; 
     },
 
-    visibleModalEdit() {
+    editCurrentBook(book, index) {
       taxi.$emit('visibleModalEdit');
-    }
+
+      setTimeout(function() {
+        taxi.$emit('editBook', book, index);
+      }, 0)
+    },
   },
 
   created() {
@@ -68,6 +73,10 @@ export default {
     
     taxi.$on('clearCollection', () => {
       this.collectionBooks = [];
+    });
+
+    taxi.$on('replaceBook', (book, index) => {
+      this.collectionBooks[index] = book;
     });
   },
 }
