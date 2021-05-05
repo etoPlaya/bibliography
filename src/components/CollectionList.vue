@@ -94,8 +94,20 @@ export default {
 
   padding: 0 24px 20px 0;
 
+  @include mobile {
+    max-height: none;
+    overflow: visible;
+
+    margin: 40px 0 0 0;
+    padding: 0 0 64px 0;
+  }
+
   &::-webkit-scrollbar {
     width: 6px;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   /* Track */
@@ -139,6 +151,10 @@ export default {
     padding: 5px;
     border-radius: 4px;
     transition: 250ms ease all;
+
+    @include mobile {
+      display: none;
+    }
 
     &:hover {
       background: #666A87;

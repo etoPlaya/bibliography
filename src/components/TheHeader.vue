@@ -26,15 +26,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/mixin.scss';
+
+header {
+  .content {
+    @include mobile {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      
+      padding: 30px 20px 10px 20px !important;
+    }
+  }
+}
+
 p {
   font-size: 12px;
   line-height: 15px;
 
   color: rgba(255, 255, 255, 0.33);
 
+  @include mobile {
+    display: none;
+  }
+
   & ~ svg {
     display: block;
     margin-top: 10px;
+
+    @include mobile {
+      margin-top: 0;
+    }
   }
 }
 
@@ -54,6 +76,16 @@ a {
     svg {
       fill: gold;
       opacity: 1;
+    }
+  }
+
+  @include mobile {
+    position: static;
+  }
+  
+  span {
+    @include mobile {
+      display: none;
     }
   }
 

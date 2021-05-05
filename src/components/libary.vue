@@ -51,8 +51,7 @@ section {
   max-width: 950px;
   width: 100%;
 
-  height: calc(100% - 69px);
-  height: calc(100vh - 69px);
+  height: 100%;
 
   padding: 20px 40px;
   background: #FFFFFF;
@@ -61,8 +60,13 @@ section {
 
   overflow: hidden;
 
-  @media screen and (max-width: 768px) {
+  @include mobile {
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+
+    min-height: 100%;
     height: auto;
+    overflow: visible;
   }
 
   .tabs {

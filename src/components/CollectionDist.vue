@@ -42,7 +42,12 @@ export default {
 
     font-size: 14px;
     line-height: 18px;
-    color: #FFFFFF
+    color: #FFFFFF;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
   }
 
   .wrapper {
@@ -65,6 +70,10 @@ export default {
 
       padding: 0 12px;
       margin-right: 40px;
+
+      @include mobile {
+        margin-right: 0;
+      }
       
       span {
         font-size: 14px;
@@ -112,6 +121,10 @@ export default {
       color: #595D7E;
 
       transition: 250ms ease all;
+
+      @include mobile {
+        display: none;
+      }
 
       &:not(:last-child) {
         margin-right: 13px;

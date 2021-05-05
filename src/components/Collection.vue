@@ -109,13 +109,14 @@ section {
   max-width: 950px;
   width: 100%;
 
-  height: calc(100% - 69px);
-  height: calc(100vh - 69px);
+  height: 100%;
 
   padding: 20px 40px;
 
   @media screen and (max-width: 768px) {
-    height: auto;
+    height: 100%;
+
+    padding: 20px;
   }
 
   .collection {
@@ -184,6 +185,10 @@ section {
 
         transition: 250ms ease all;
 
+        @include mobile {
+          display: none;
+        }
+
         &:hover {
           background: rgba(243, 243, 247, 0.1);
           color: #B2B4C3;
@@ -247,11 +252,31 @@ section {
           text-decoration: none;
         }
       }
+
+      @include mobile {
+        max-width: 100%;
+        
+        font-size: 14px;
+        line-height: 18px;
+        
+        padding: 18px 40px;
+      }
     }
 
     img {
       display: block;
       margin: 32px auto 0 auto;
+
+      max-width: 100%;
+
+      @include mobile {
+        max-width: 286px;
+      }
+    }
+
+    @include mobile {
+      position: static;
+      width: 100%;
     }
   }
 }

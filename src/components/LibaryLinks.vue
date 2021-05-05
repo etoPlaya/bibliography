@@ -2,7 +2,13 @@
   <div class="links-container">
     <p>Советуем ознакомиться с библиографией как с наукой и посмотреть, чему каждый может научиться</p>
     <div class="blocks">
-      <a :href="'https://' + link.site" class="block" v-for="link of links" target="_blank">
+      <a 
+        :href="'https://' + link.site" 
+        class="block" 
+        v-for="(link, index) of links"
+        v-bind:key="index"
+        target="_blank"
+      >
         <div class="title">
           {{ link.title.length >= 55 ? link.title.slice(0, 55) + '...' : link.title }}
         </div>
@@ -52,11 +58,19 @@ export default {
 .links-container {
   margin-top: 24px;
 
+  @include mobile  {
+    margin-top: 20px;
+  }
+
   p {
     max-width: 390px;
     font-size: 12px;
     line-height: 15px;
     color: #585C7D;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .blocks {
@@ -67,11 +81,25 @@ export default {
 
     overflow-y: auto;
 
-    max-height: calc(100vh - 169px);
+    max-height: calc(100vh - 205px);
     
     padding-bottom: 20px;
+
+    @include mobile {
+      max-height: none;
+      overflow: visible;
+      min-height: 100%;
+
+      margin: 0;
+      padding: 0 0 70px 0;
+    }
+
     &::-webkit-scrollbar {
       width: 6px;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     /* Track */
@@ -107,6 +135,18 @@ export default {
       cursor: pointer;
 
       transition: 250ms ease all;
+
+      @media screen and (max-width: 1550px) {
+        max-width: calc(50% - 25px);
+      }
+
+      @include mobile {
+        margin: 0 0 25px 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
 
       &:hover {
         box-shadow: 0px 12px 30px rgba(89, 93, 126, 0.6);
@@ -170,6 +210,10 @@ export default {
           line-height: 15px;
           color: #A5A8C0;
         }
+      }
+
+      @media screen and (max-width: 600px) {
+        max-width: 100%;
       }
     }
   }

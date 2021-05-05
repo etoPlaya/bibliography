@@ -106,7 +106,7 @@ export default {
 @import '@/styles/variable.scss';
 
 .result {
-  margin-top: 30px;
+  margin-top: 15px;
 
   &-head {
   display: flex;
@@ -154,12 +154,25 @@ export default {
     margin: 12px -24px 0 0;
     overflow-y: auto;
 
-    max-height: calc(100vh - 328px);
+    max-height: calc(100vh - 340px);
 
     padding: 0 24px 20px 0;
 
+    @include mobile {
+      padding: 0 0 70px 0;
+      margin-right: 0;
+
+      min-height: 100%;
+      max-height: none;
+      overflow: visible;
+    }
+
     &::-webkit-scrollbar {
       width: 6px;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     /* Track */
@@ -196,6 +209,10 @@ export default {
       border-top: 1px solid $background;
     }
 
+    @include mobile {
+      padding: 16px 3px;
+    }
+
     &-link {
       display: block;
       margin-right: 9px;
@@ -226,11 +243,19 @@ export default {
         stroke-width: 2px;
         transition: 250ms ease all;
       }
+
+      @include mobile {
+        display: none;
+      }
     }
 
     &-title {
       font-size: 15px;
       color: $brand;
+
+      @include mobile {
+        max-width: calc(100% - 50px);
+      }
     }
 
     &-button {
