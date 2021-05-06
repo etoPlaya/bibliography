@@ -6,12 +6,12 @@
 
         <a href="" class="clear" @click.prevent="clearCollection">
           <span>очистить</span>
-          <CloseIcon/>
+          <CloseIcon />
         </a>
 
         <a href="" class="added" @click.prevent="visibleModal = true">
           <span>добавить свой источник</span>
-          <AddIcon/>
+          <AddIcon />
         </a>
       </div>
 
@@ -19,7 +19,7 @@
         v-if="visibleCollection"
       />
 
-      <CollectionList/>
+      <CollectionList />
     </div>
 
     <div class="no-collection" v-if="!visibleCollection">
@@ -46,13 +46,13 @@
 <script>
 import { taxi } from "../main";
 
-import CloseIcon from '@/assets/ui/close.svg';
-import AddIcon from '@/assets/ui/add.svg';
-
 import CollectionDist from '@/components/CollectionDist';
 import CollectionList from '@/components/CollectionList';
 import CollectionModal from '@/components/CollectionModal';
 import CollectionModalEdit from '@/components/CollectionModalEdit';
+
+import CloseIcon from '@/assets/ui/close.svg';
+import AddIcon from '@/assets/ui/add.svg';
 
 export default {
   components: {
@@ -70,13 +70,6 @@ export default {
       visibleModal: false,
       visibleModalEdit: false
     }
-  },
-
-  methods: {
-    clearCollection() {
-      this.visibleCollection = false;
-      taxi.$emit('clearCollection');
-    },
   },
 
   created() {
@@ -97,6 +90,13 @@ export default {
       this.visibleModalEdit = true;
     });
   },
+
+  methods: {
+    clearCollection() {
+      this.visibleCollection = false;
+      taxi.$emit('clearCollection');
+    },
+  },
 }
 </script>
 
@@ -112,12 +112,6 @@ section {
   height: 100%;
 
   padding: 20px 40px;
-
-  @media screen and (max-width: 768px) {
-    height: 100%;
-
-    padding: 20px;
-  }
 
   .collection {
     &-head {
@@ -143,7 +137,15 @@ section {
         border-radius: 4px;
 
         transition: 250ms ease all;
-        
+
+        svg {
+          display: block;
+
+          fill: #82859E;
+
+          margin-left: 4px;
+        }
+
         &:hover {
           background: rgba(243, 243, 247, 0.1);
           color: #B2B4C3;
@@ -160,14 +162,6 @@ section {
           svg {
             fill: #EEEFF2;
           }
-        }
-
-        svg {
-          display: block;
-
-          fill: #82859E;
-
-          margin-left: 4px;
         }
       }
 
@@ -185,8 +179,12 @@ section {
 
         transition: 250ms ease all;
 
-        @include mobile {
-          display: none;
+        svg {
+          display: block;
+
+          fill: #82859E;
+          
+          margin-left: 4px;
         }
 
         &:hover {
@@ -207,12 +205,8 @@ section {
           }
         }
 
-        svg {
-          display: block;
-
-          fill: #82859E;
-          
-          margin-left: 4px;
+        @include mobile {
+          display: none;
         }
       }
     }
@@ -278,6 +272,12 @@ section {
       position: static;
       width: 100%;
     }
+  }
+
+  @include mobile {
+    height: 100%;
+
+    padding: 20px;
   }
 }
 </style>

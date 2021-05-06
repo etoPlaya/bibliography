@@ -8,24 +8,26 @@
 
       <a href="" class="result-clear" @click.prevent="$emit('clearResult')">
         <span>очистить</span>
-        <CloseIcon/>
+        <CloseIcon />
       </a>
     </div>
 
     <div class="result-list">
       <div class="result-item" v-for="(book, index) of books" v-bind:key="index">
         <a href="" class="result-item-link">
-          <LinkIcon/>
+          <LinkIcon />
         </a>
 
         <div class="result-item-title">
           {{ book.title + ',' }}
+
           {{ book.year + 'г.'}}
+
           {{ book.isbn }}
         </div>
 
         <a href="" class="result-item-button" @click.prevent="addBookInCollection(book)">
-          <AddIcon/>
+          <AddIcon />
         </a>
       </div>
     </div>
@@ -97,7 +99,7 @@ export default {
       taxi.$emit('visibleCollection');
       taxi.$emit('addBookInCollection', book);
     }
-  }
+  },
 }
 </script>
 
@@ -109,16 +111,16 @@ export default {
   margin-top: 15px;
 
   &-head {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
   }
 
   &-total {
-  font-size: 18px;
-  line-height: 23px;
-  color: $brand;
+    font-size: 18px;
+    line-height: 23px;
+    color: $brand;
 
-  margin-right: 10px;
+    margin-right: 10px;
   }
 
   &-clear {
@@ -131,14 +133,6 @@ export default {
 
     transition: 250ms ease all;
 
-    &:hover {
-      background: #F3F3F7;
-    }
-
-    &:active, &.active {
-      background: #D4D4E2;
-    }
-
     span {
       font-size: 12px;
       color: #82859E;
@@ -147,6 +141,14 @@ export default {
     svg {
       fill: #82859E;
       margin-left: 3.5px;
+    }
+
+    &:hover {
+      background: #F3F3F7;
+    }
+
+    &:active, &.active {
+      background: #D4D4E2;
     }
   }
 
@@ -157,15 +159,6 @@ export default {
     max-height: calc(100vh - 340px);
 
     padding: 0 24px 20px 0;
-
-    @include mobile {
-      padding: 0 0 70px 0;
-      margin-right: 0;
-
-      min-height: 100%;
-      max-height: none;
-      overflow: visible;
-    }
 
     &::-webkit-scrollbar {
       width: 6px;
@@ -191,6 +184,15 @@ export default {
     &::-webkit-scrollbar-thumb:hover {
       background: #AEAEC1;
     }
+
+    @include mobile {
+      padding: 0 0 70px 0;
+      margin-right: 0;
+
+      min-height: 100%;
+      max-height: none;
+      overflow: visible;
+    }
   }
 
   &-item {
@@ -201,18 +203,6 @@ export default {
 
     transition: 250ms ease all;
 
-    &:hover {
-      background-color: #F9F9FB;
-    }
-
-    &:first-child {
-      border-top: 1px solid $background;
-    }
-
-    @include mobile {
-      padding: 16px 3px;
-    }
-
     &-link {
       display: block;
       margin-right: 9px;
@@ -220,6 +210,13 @@ export default {
       padding: 5px;
       border-radius: 4px;
       transition: 250ms ease all;
+
+      svg {
+        fill: transparent;
+        stroke: #BEBFCC;
+        stroke-width: 2px;
+        transition: 250ms ease all;
+      }
 
       &:hover {
         background: #F2F2F5;
@@ -235,13 +232,6 @@ export default {
         svg {
           stroke: #70728F;
         }
-      }
-
-      svg {
-        fill: transparent;
-        stroke: #BEBFCC;
-        stroke-width: 2px;
-        transition: 250ms ease all;
       }
 
       @include mobile {
@@ -267,6 +257,11 @@ export default {
 
       transition: 250ms ease all;
 
+      svg {
+        fill: #BEBFCC;
+        transition: 250ms ease all;
+      }
+
       &:hover {
         background-color: #F2F2F5;
 
@@ -282,11 +277,18 @@ export default {
           fill: #70728F;
         }
       }
+    }
 
-      svg {
-        fill: #BEBFCC;
-        transition: 250ms ease all;
-      }
+    &:first-child {
+      border-top: 1px solid $background;
+    }
+
+    &:hover {
+      background-color: #F9F9FB;
+    }
+
+    @include mobile {
+      padding: 16px 3px;
     }
   }	
 }

@@ -2,7 +2,7 @@
   <div class="collection-list">
     <div class="collection-item" v-for="(book, index) of collectionBooks" v-bind:key="index">
       <a href="" class="collection-item-link">
-        <LinkIcon/>
+        <LinkIcon />
       </a>
 
       <div class="collection-item-title">
@@ -50,6 +50,20 @@ export default {
     }
   },
 
+  created() {
+    taxi.$on('addBookInCollection', data => {
+      this.collectionBooks.push({title: data.title, year: data.year, isbn: data.isbn});
+    });
+    
+    taxi.$on('clearCollection', () => {
+      this.collectionBooks = [];
+    });
+
+    taxi.$on('replaceBook', (book, index) => {
+      this.collectionBooks[index] = book;
+    });
+  },
+
   methods: {
     removeBook(index) {
       this.collectionBooks.splice(index, 1);
@@ -64,20 +78,6 @@ export default {
         taxi.$emit('editBook', book, index);
       }, 0)
     },
-  },
-
-  created() {
-    taxi.$on('addBookInCollection', data => {
-      this.collectionBooks.push({title: data.title, year: data.year, isbn: data.isbn});
-    });
-    
-    taxi.$on('clearCollection', () => {
-      this.collectionBooks = [];
-    });
-
-    taxi.$on('replaceBook', (book, index) => {
-      this.collectionBooks[index] = book;
-    });
   },
 }
 </script>
@@ -136,14 +136,6 @@ export default {
 
   transition: 250ms ease all;
 
-  &:hover {
-    background-color: #515573;
-  }
-
-  &:first-child {
-    border-top: 1px solid #787B96;
-  }
-
   &-link {
     display: block;
     margin-right: 9px;
@@ -152,8 +144,11 @@ export default {
     border-radius: 4px;
     transition: 250ms ease all;
 
-    @include mobile {
-      display: none;
+    svg {
+      fill: transparent;
+      stroke: #6D708E;;
+      stroke-width: 2px;
+      transition: 250ms ease all;
     }
 
     &:hover {
@@ -172,11 +167,8 @@ export default {
       }
     }
 
-    svg {
-      fill: transparent;
-      stroke: #6D708E;;
-      stroke-width: 2px;
-      transition: 250ms ease all;
+    @include mobile {
+      display: none;
     }
   }
 
@@ -194,18 +186,6 @@ export default {
     border-radius: 4px;
 
     transition: 250ms ease all;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:hover {
-      background-color: #F2F2F5;
-    }
-
-    &:active, &.active {
-      background: #D7D7E0;
-    }
 
     &__edit {
       margin-left: auto;
@@ -235,6 +215,26 @@ export default {
 
       transition: 250ms ease all;
     }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: #F2F2F5;
+    }
+
+    &:active, &.active {
+      background: #D7D7E0;
+    }
+  }
+
+  &:hover {
+    background-color: #515573;
+  }
+
+  &:first-child {
+    border-top: 1px solid #787B96;
   }
 }	
 </style>

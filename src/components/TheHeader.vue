@@ -3,11 +3,11 @@
     <div class="content">
       <p>Библиография — это сервис составления библиографического описания различных источников информации.</p>
 
-      <LogoIcon/>
+      <LogoIcon />
 
       <a href="https://goldcarrot.ru/" class="developer" target="_blank">
         <span>Сделано в </span>
-        <GcIcon/>
+        <GcIcon />
       </a>
     </div>
   </header>	
@@ -46,10 +46,6 @@ p {
 
   color: rgba(255, 255, 255, 0.33);
 
-  @include mobile {
-    display: none;
-  }
-
   & ~ svg {
     display: block;
     margin-top: 10px;
@@ -57,6 +53,10 @@ p {
     @include mobile {
       margin-top: 0;
     }
+  }
+
+  @include mobile {
+    display: none;
   }
 }
 
@@ -70,18 +70,6 @@ a {
   color: #9092A8;
 
   transition: 250ms ease all;
-
-  &:hover {
-    color: gold;
-    svg {
-      fill: gold;
-      opacity: 1;
-    }
-  }
-
-  @include mobile {
-    position: static;
-  }
   
   span {
     @include mobile {
@@ -94,6 +82,18 @@ a {
     opacity: 0.3;
 
     transition: 250ms ease all;
+  }
+
+  &:hover {
+    color: gold;
+    svg {
+      fill: gold;
+      opacity: 1;
+    }
+  }
+
+  @include mobile {
+    position: static;
   }
 }
 </style>

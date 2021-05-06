@@ -157,14 +157,14 @@ export default {
 
         padding-left: 8px;
         transition: 250ms ease all;
-        
-        @include placeholder {
-          color: #BEBFCC;
-          transition: 250ms ease all;
-        }
 
         &:hover {
           background: #E7E8EE;
+        }
+
+        @include placeholder {
+          color: #BEBFCC;
+          transition: 250ms ease all;
         }
       }
 
@@ -175,10 +175,6 @@ export default {
         max-width: 870px;
         width: 100%;
         margin: 0 0 12px 0;
-
-        @include mobile {
-          margin-bottom: 8px;
-        }
 
         input {
           max-width: none;
@@ -207,16 +203,16 @@ export default {
             height: 36px;
           }
         }
+
+        @include mobile {
+          margin-bottom: 8px;
+        }
       }
 
       .row {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-
-        @include mobile {
-          justify-content: space-between;
-        }
         
         input {
           margin: 0 16px 8px 0;
@@ -230,6 +226,10 @@ export default {
             margin-right: 0;
           }
         }
+
+        @include mobile {
+          justify-content: space-between;
+        }
       }
     }
   }
@@ -238,15 +238,6 @@ export default {
     position: absolute;
     top: calc(50% - 100px);
     width: calc(100% - 80px);
-
-    @media screen and (max-height: 700px) {
-      top: 50%;
-    }
-
-    @include mobile {
-      position: static;
-      margin: 80px auto 0 auto;
-    }
 
     img {
       display: block;
@@ -273,6 +264,15 @@ export default {
 
         margin-top: 8px;
       }
+    }
+
+    @media screen and (max-height: 700px) {
+      top: 50%;
+    }
+
+    @include mobile {
+      position: static;
+      margin: 80px auto 0 auto;
     }
   }
 }

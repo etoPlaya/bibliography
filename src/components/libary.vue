@@ -1,12 +1,22 @@
 <template>
   <section>
   <div class="tabs">
-    <a href="" class="tabs-tab" @click.prevent="visibleSearch = true" :class="{ active: visibleSearch }">
-      <LoopIcon/>
+    <a 
+      href="" 
+      class="tabs-tab" 
+      @click.prevent="visibleSearch = true" 
+      :class="{ active: visibleSearch }"
+    >
+      <LoopIcon />
       <span>Поиск</span>
     </a>
 
-    <a href="" class="tabs-tab" @click.prevent="visibleSearch = false" :class="{ active: !visibleSearch }">
+    <a 
+      href="" 
+      class="tabs-tab" 
+      @click.prevent="visibleSearch = false" 
+      :class="{ active: !visibleSearch }"
+    >
       <LinkIcon/>
       <span>Полезные ссылки</span>
     </a>
@@ -15,17 +25,18 @@
 
   <div class="tab-item">
     <LibarySearch v-if="visibleSearch"/>
+
     <LibaryLinks v-if="!visibleSearch"/>
   </div>
   </section>
 </template>
 
 <script>
-import LoopIcon from '@/assets/ui/loop.svg';
-import LinkIcon from '@/assets/ui/link.svg';
-
 import LibarySearch from '@/components/LibarySearch';
 import LibaryLinks from '@/components/LibaryLinks';
+
+import LoopIcon from '@/assets/ui/loop.svg';
+import LinkIcon from '@/assets/ui/link.svg';
 
 export default {
   components: {
@@ -35,9 +46,11 @@ export default {
     LinkIcon,
   },
   
-  data: () => ({
-    visibleSearch: true,
-  })
+  data() {
+    return {
+      visibleSearch: true,
+    }
+  },
 }
 </script>
 
@@ -60,15 +73,6 @@ section {
 
   overflow: hidden;
 
-  @include mobile {
-    border-radius: 20px 20px 0 0;
-    padding: 20px;
-
-    min-height: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
   .tabs {
     display: flex;
     align-items: center;
@@ -83,25 +87,6 @@ section {
       cursor: pointer;
       transition: 250ms ease all;
       border-radius: 5px;
-
-      &:hover:not(.active) {
-        background-color: $background;
-
-        svg {
-          stroke: $brand;
-        }
-
-        span {
-          color: $brand;
-        }
-      }
-
-      &.active {
-        span, svg {
-          color: $brand;
-          stroke: $brand;
-        }
-      }
 
       svg {
         display: block;
@@ -120,7 +105,35 @@ section {
         line-height: 20px;
         color: #A5A8C0;
       }
+
+      &.active {
+        span, svg {
+          color: $brand;
+          stroke: $brand;
+        }
+      }
+
+      &:hover:not(.active) {
+        background-color: $background;
+
+        svg {
+          stroke: $brand;
+        }
+
+        span {
+          color: $brand;
+        }
+      }
     }
+  }
+
+  @include mobile {
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+
+    min-height: 100%;
+    height: auto;
+    overflow: visible;
   }
 }
 </style>

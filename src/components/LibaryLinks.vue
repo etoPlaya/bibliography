@@ -14,7 +14,7 @@
         </div>
         <div class="wrapper">
           <div class="search">Читать</div>
-          <div class="page">{{link.site}}</div>
+          <div class="page">{{ link.site }}</div>
         </div>
       </a>
     </div>
@@ -23,31 +23,33 @@
 
 <script>
 export default {
-  data: () => ({
-    links: [
-      {title: 'Как составлять библиографи-ческое описание, чтобы не об', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-      {title: 'Что такое библиография?', site: 'wikipedia.org'},
-      {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
-    ]
-  }),
+  data() {
+    return {
+      links: [
+        {title: 'Как составлять библиографи-ческое описание, чтобы не об', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+        {title: 'Что такое библиография?', site: 'wikipedia.org'},
+        {title: 'Как составлять библиографи-ческое описание, чтобы не обосраться', site: 'rsl.ru'},
+      ],
+    }
+  },
 }
 </script>
 
@@ -57,10 +59,6 @@ export default {
 
 .links-container {
   margin-top: 24px;
-
-  @include mobile  {
-    margin-top: 20px;
-  }
 
   p {
     max-width: 390px;
@@ -85,40 +83,6 @@ export default {
     
     padding-bottom: 20px;
 
-    @include mobile {
-      max-height: none;
-      overflow: visible;
-      min-height: 100%;
-
-      margin: 0;
-      padding: 0 0 70px 0;
-    }
-
-    &::-webkit-scrollbar {
-      width: 6px;
-
-      @include mobile {
-        display: none;
-      }
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: #F3F3F7;
-      border-radius: 2px;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: #C2C2D6;
-      border-radius: 2px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #AEAEC1;
-    }
-
     .block {
       display: flex;
       flex-direction: column;
@@ -135,37 +99,6 @@ export default {
       cursor: pointer;
 
       transition: 250ms ease all;
-
-      @media screen and (max-width: 1550px) {
-        max-width: calc(50% - 25px);
-      }
-
-      @include mobile {
-        margin: 0 0 25px 0;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      &:hover {
-        box-shadow: 0px 12px 30px rgba(89, 93, 126, 0.6);
-        transform: translateY(-5px);
-
-        .title {
-          color: #FFFFFF;
-        }
-
-        .wrapper {
-          .search {
-            color: #CFD1DD;
-
-            &:after {
-              color: #CFD1DD;
-            }
-          }
-        }
-      }
 
       .title {
         font-size: 16px;
@@ -212,10 +145,79 @@ export default {
         }
       }
 
+      &:hover {
+        box-shadow: 0px 12px 30px rgba(89, 93, 126, 0.6);
+        transform: translateY(-5px);
+
+        .title {
+          color: #FFFFFF;
+        }
+
+        .wrapper {
+          .search {
+            color: #CFD1DD;
+
+            &:after {
+              color: #CFD1DD;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 1550px) {
+        max-width: calc(50% - 25px);
+      }
+
+      @include mobile {
+        margin: 0 0 25px 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
       @media screen and (max-width: 600px) {
         max-width: 100%;
       }
     }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #F3F3F7;
+      border-radius: 2px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #C2C2D6;
+      border-radius: 2px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #AEAEC1;
+    }
+
+    @include mobile  {
+      max-height: none;
+      overflow: visible;
+      min-height: 100%;
+
+      margin: 0;
+      padding: 0 0 70px 0;
+    }
+  }
+
+  @include mobile  {
+    margin-top: 20px;
   }
 }
 </style>

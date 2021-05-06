@@ -89,10 +89,11 @@ export default {
 
 <style lang="scss">
 @import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
-@import '@/styles/mixin.scss';
-@import '@/styles/variable.scss';
 @import '@/styles/default.scss';
 @import '@/styles/fonts.scss';
+
+@import '@/styles/mixin.scss';
+@import '@/styles/variable.scss';
 
 body {
   background-color: $brand;

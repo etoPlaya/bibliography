@@ -5,7 +5,7 @@
       <div class="link">
         <span>http://bigraph.ru/c/Jgeo_F7FG</span>
         <a href="">
-          <CopyIcon/>
+          <CopyIcon />
         </a>
       </div>
 
@@ -70,10 +70,6 @@ export default {
 
       padding: 0 12px;
       margin-right: 40px;
-
-      @include mobile {
-        margin-right: 0;
-      }
       
       span {
         font-size: 14px;
@@ -101,6 +97,10 @@ export default {
         fill: #BEBFCC;
         stroke-width: 2px;
       }
+
+      @include mobile {
+        margin-right: 0;
+      }
     }
 
     .button {
@@ -122,10 +122,6 @@ export default {
 
       transition: 250ms ease all;
 
-      @include mobile {
-        display: none;
-      }
-
       &:not(:last-child) {
         margin-right: 13px;
       }
@@ -136,6 +132,10 @@ export default {
 
       &.active, &:active {
         background: #AEAEC1;
+      }
+
+      @include mobile {
+        display: none;
       }
     }
   }
